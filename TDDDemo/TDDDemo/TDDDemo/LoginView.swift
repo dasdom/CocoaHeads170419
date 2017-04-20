@@ -10,15 +10,32 @@ import UIKit
 
 class LoginView: UIView {
     
+    let usernameTextField: UITextField
+    let passwordTextField: UITextField
+    
     override init(frame: CGRect) {
         
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Please log in"
         
-        let stackView = UIStackView(arrangedSubviews: [label])
+        usernameTextField = UITextField()
+        usernameTextField.placeholder = "Username"
+        usernameTextField.borderStyle = .roundedRect
+        usernameTextField.font = UIFont.systemFont(ofSize: 14)
+        
+        passwordTextField = UITextField()
+        passwordTextField.placeholder = "Password"
+        passwordTextField.borderStyle = .roundedRect
+        passwordTextField.font = UIFont.systemFont(ofSize: 14)
+        
+        let button = UIButton(type: .system)
+        button.setTitle("Send", for: .normal)
+
+        let stackView = UIStackView(arrangedSubviews: [label, usernameTextField, passwordTextField, button])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.spacing = 10
         
         super.init(frame: frame)
     
